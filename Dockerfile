@@ -14,3 +14,6 @@ RUN yum install -y \
   unzip \
   zip \
   && yum clean all
+RUN update-ca-trust enable
+ADD http://sslhelp.doi.net/docs/DOIRootCA2.cer /etc/pki/ca-trust/source/anchors/
+RUN update-ca-trust extract
